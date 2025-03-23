@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
              withSonarQubeEnv('spring') { 
-                    sh "mvn clean verify Sonartoken:Sonartoken -Dsonar.projectKey=Spring"
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=Sonartoken"
                 } 
              }
           }
