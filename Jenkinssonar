@@ -45,8 +45,8 @@ pipeline {
                    
                     sh '''
                         aws ecr get-login-password --region $(AWS_DEFAULT_REGION) | docker login --username AWS --password-stdin 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com
-                        docker tag sstest:latest 804480554088.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/sstest:latest
-                        docker push 804480554088.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/sstest:latest
+                        docker tag demo:latest 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/demo:latest
+                        docker push 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/demo:latest
 
                         # Update kubeconfig to interact with EKS
                         aws eks update-kubeconfig --region us-east-1 --name cluster-eksctl
