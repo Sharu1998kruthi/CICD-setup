@@ -45,6 +45,7 @@ pipeline {
                    
                     sh '''
                         aws ecr get-login-password --region $(AWS_DEFAULT_REGION) | docker login --username AWS --password-stdin 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com
+                        docker build -t stest .
                         docker tag demo:latest 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/demo:latest
                         docker push 241533141773.dkr.ecr.$(AWS_DEFAULT_REGION).amazonaws.com/demo:latest
 
